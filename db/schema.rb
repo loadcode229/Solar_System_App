@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_001024) do
+ActiveRecord::Schema.define(version: 2020_11_05_001500) do
 
   create_table "planets", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "type_of_planet"
     t.text "description"
     t.string "length_of_year"
     t.string "distance_from_sun"

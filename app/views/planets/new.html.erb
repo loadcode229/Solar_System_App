@@ -1,0 +1,42 @@
+<h1 align="center">New Planet</h1>
+
+<%= form_for(@planet) do |f| %>
+
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name %>
+    <br>
+    <br>
+
+    <%= f.label :type_of_planet %>
+    <br>
+    <%= f.text_field :type_of_planet %>
+    <br>
+    <br>
+
+    <%= f.label :description %>
+    <br>
+    <%= f.text_area :description %>
+    <br>
+    <br>
+
+    <%= f.label :length_of_year %>
+    <br>
+    <%= f.text_field :length_of_year %>
+    <br>
+    <br>
+
+    <%= f.label :distance_from_sun %>
+    <br>
+    <%= f.text_field :distance_from_sun %>
+    <br>
+    <br>
+    
+    <%= f.label :moons %>
+    <br>
+    <%= f.text_field :moons %>
+    <br>
+    <br>
+
+    <%= f.submit 'Submit' %>
+<% end %>
