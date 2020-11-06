@@ -22,7 +22,8 @@ footer {
     margin-top: 100px; 
 }
 
-table, td, th { 
+table, td, th {
+    padding:0 8px 0 0;
     vertical-align: middle; 
     border: none; 
 }
