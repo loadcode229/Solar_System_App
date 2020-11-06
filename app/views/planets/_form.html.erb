@@ -1,0 +1,71 @@
+<%= form_with(model: planet, local: true) do |form| %>
+    <% if planet.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(planet.errors.count, "error") %> prohibited this planet from being saved:</h2>
+
+            <ul>
+                <% planet.erorrs.full_messages.each do |messages| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <div class="fields">
+        <%= form.label :name %>
+        <br>
+        <%= form.text_field :name %>
+        <br>
+        <br>
+    </div>
+
+    <div class="fields">
+        <%= form.label :type_of_planet %>
+        <br>
+        <%= form.text_field :type_of_planet %>
+        <br>
+        <br>
+    </div>
+
+    <div class="fields">
+        <%= form.label :description %>
+        <br>
+        <%= form.text_area :description %>
+        <br>
+        <br>
+    </div>
+
+    <div class="fields">
+        <%= form.label :length_of_year %>
+        <br>
+        <%= form.text_field :length_of_year %> (In Days.)
+        <br>
+        <br>
+    </div>
+
+    <div class="fields">
+        <%= form.label :distance_from_sun %>
+        <br>
+        <%= form.text_field :distance_from_sun %> (In AU(Astronomical Units))
+        <br>
+        <br>
+    </div>
+
+    <div class="fields">
+        <%= form.label :moons %>
+        <br>
+        <%= form.text_field :moons %>
+        <br>
+        <br>
+    </div>
+
+    <%= form.file_field :image %>
+    <br>
+    <br>
+
+    <div class="actions">
+        <%= form.submit 'Submit' %>
+    </div>
+<% end %>
+<br>
+<br>
