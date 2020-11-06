@@ -1,6 +1,5 @@
 <h1 align="center">Planets</h1>
-
-<table>
+<table align="center">
   <thead>
     <tr>
       <th>Name</th><br><br>
@@ -14,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @planets.each do |planet| %>
+    <% current_user.planets.each do |planet| %>
       <tr>
         <td><%= planet.name %></td><br><br>
         <td><%= planet.type_of_planet %></td>

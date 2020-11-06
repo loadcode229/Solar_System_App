@@ -19,11 +19,12 @@ Rails.application.routes.draw do
   get '/new_planet' => 'planets#new'
   post '/new_planet' => 'planets#create'
   get '/edit_planet' => 'planets#edit'
-  patch '/update_planet' => 'planets#update'
+  patch '/planet' => 'planets#update'
   delete '/destroy_planet' => 'planets#destroy'
 
-  resources :users
-  resources :planets
+  resources :users do
+    resources :planets
+  end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
