@@ -25,19 +25,18 @@
               <ul class="nav navbar-nav">
                   <li class="active"><a href="/planets">Planets</a></li>
               </ul>
+              <p class="navbar-text">
+              <% if logged_in? %>
+                <%= link_to "Logout", logout_path, method: 'delete' %>
+              <% else %>
+                <%= link_to "Sign Up", signup_path %> |
+                <%= link_to "Log In", login_path %> 
+              <% end %>
+              </p>
           </div>
       </div>
     </nav>
     <div class="container">
-      <div>
-        <% if logged_in? %>
-          <%= link_to "All Planets", planets_path %> |
-          <%= link_to "Logout", logout_path, method: 'delete' %>
-        <% else %>
-          <%= link_to "Sign Up", signup_path %> |
-          <%= link_to "Log In", login_path %> 
-        <% end %>
-      </div>
       <%= yield %>
     </div>
     <footer>
