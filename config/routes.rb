@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :moons
   #root
   root "sessions#home"
 

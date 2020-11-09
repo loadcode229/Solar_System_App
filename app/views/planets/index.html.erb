@@ -1,8 +1,8 @@
 <h1 align="center">Planets</h1>
-<table align="center">
+<table align="center"><br><br>
   <thead>
     <tr>
-      <th>Name</th><br><br>
+      <th>Name</th>
       <th>Type of Planet</th>
       <th>Description</th>
       <th>Length of Year</th>
@@ -15,7 +15,7 @@
   <tbody>
     <% current_user.planets.each do |planet| %>
       <tr>
-        <td><%= planet.name %></td><br><br>
+        <td><%= planet.name %></td>
         <td><%= planet.type_of_planet %></td>
         <td><%= planet.description %></td>
         <td><%= planet.length_of_year %></td>
@@ -29,6 +29,6 @@
   </tbody>
 </table>
 
-<br>
+<br><br>
 
 <p align="center"><%= link_to "Add a Planet", '/new_planet' %></p>
