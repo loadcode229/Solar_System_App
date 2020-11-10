@@ -1,2 +1,0 @@
-class MoonsController < ApplicationController
-end

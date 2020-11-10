@@ -1,34 +1,22 @@
 <h1 align="center">Planets</h1>
-<table align="center"><br><br>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type of Planet</th>
-      <th>Description</th>
-      <th>Length of Year</th>
-      <th>Distance from the Sun</th>
-      <th>Moons</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% current_user.planets.each do |planet| %>
-      <tr>
-        <td><%= planet.name %></td>
-        <td><%= planet.type_of_planet %></td>
-        <td><%= planet.description %></td>
-        <td><%= planet.length_of_year %></td>
-        <td><%= planet.distance_from_sun %></td>
-        <td><%= planet.moons %></td>
-        <td><%= link_to 'Show', planet %></td>
-        <td><%= link_to 'Edit', edit_planet_path(planet) %></td>
-        <td><%= link_to 'Delete', destroy_planet_path(planet), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @planets.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |planet| %>
+      <div class="col-md-4">
+        <%= image_tag planet.image_url(:thumb) if planet.image.present? %>
+        <h4><%= link_to planet.name, planet %></h4>
+        <p>Type of Planet: <%= planet.type_of_planet %></p>
+        <p>Description: <%= planet.description %></p>
+        <p>Length of Year: <%= planet.length_of_year %></p>
+        <p>Distance from the Sun: <%= planet.distance_from_sun %></p>
+        <p>Moons: <%= planet.moons %></p>
+        <%= link_to 'Show', planet %><br>
+        <%= link_to 'Edit', edit_planet_path(planet) %><br>
+        <%= link_to 'Delete', destroy_planet_path(planet), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br><br>
+  </div>
+<% end %>
 
 <p align="center"><%= link_to "Add a Planet", '/new_planet' %></p>

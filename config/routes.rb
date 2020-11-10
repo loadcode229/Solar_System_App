@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :moons
   #root
   root "sessions#home"
 
@@ -23,9 +22,25 @@ Rails.application.routes.draw do
   patch '/planet' => 'planets#update'
   delete '/destroy_planet' => 'planets#destroy'
 
+  #moons
+  get '/planet_moons' => 'moons#index'
+  get '/planet_moon' => 'moons#show'
+  get '/new_planet_moon' => 'moons#new'
+  post '/new_planet_moon' => 'moons#create'
+  get '/edit_planet_moon' => 'moons#edit'
+  patch '/planet_moon' => 'moons#update'
+  delete '/destroy_planet_moon' => 'moons#destroy'
+
+
+  resources :moons
   resources :users do
-    resources :planets
+    resources :planets, only: [:index]
   end
+
+  resources :planets do
+    resources :moons, only: [:index]
+  end
+
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

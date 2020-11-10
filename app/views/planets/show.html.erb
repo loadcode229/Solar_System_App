@@ -1,35 +1,18 @@
-<p>
-  <strong>Name:</strong>
-  <%= @planet.name %>
-</p>
+<div class="row">
+  <div class="col-md-9">
+    <%= image_tag(@planet.image_url, width: '100%') if @planet.image.present? %>
+  </div>
 
-<p>
-  <strong>Type of Planet:</strong>
-  <%= @planet.type_of_planet %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @planet.description %>
-</p>
-
-<p>
-  <strong>Length of Year:</strong>
-  <%= @planet.length_of_year %>
-</p>
-
-<p>
-  <strong>Distance From the Sun:</strong>
-  <%= @planet.distance_from_sun %>
-</p>
-
-<p>
-  <strong>Moons:</strong>
-  <%= @planet.moons %>
-</p>
-
-<%= image_tag(@planet.image_url, :width => 600) if @planet.image.present? %>
-<br>
-<br>
-<%= link_to 'Edit', edit_planet_path(@planet) %> |
-<%= link_to 'Back', planets_path %>
+  <div class="col-md-3">
+    <p><b>Name: </b><%= @planet.name %></p>
+    <p><b>Type of Planet: </b><%= @planet.type_of_planet %></p>
+    <p><b>Description: </b><%= @planet.description %></p>
+    <p><b>Length of Year: </b><%= @planet.length_of_year %></p>
+    <p><b>Distance from the Sun: </b><%= @planet.distance_from_sun %></p>
+    <p><b>Moons: </b><%= @planet.moons %></p>
+    <p>
+      <%= link_to 'Edit', edit_planet_path(@planet) %> |
+      <%= link_to 'Back', planets_path %>
+    </p>
+  </div>
+</div>

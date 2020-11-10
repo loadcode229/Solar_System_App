@@ -21,24 +21,14 @@ body {
     padding-top: 100px;
 }
 
+p.navbar-text {
+    float: right;
+}
+
 footer { 
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 2.5rem;
     color: slategray;
-}
-
-table, td, th {
-    padding:0 8px 0 0;
-    vertical-align: middle; 
-    border: none; 
-}
-
-th { 
-    border-bottom: 1px solid #ddd; 
-}
-
-p.navbar-text {
-    padding-left: 710px;
 }
