@@ -14,31 +14,31 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   #planets
-  get '/planets' => 'planets#index'
-  get '/planet' => 'planets#show'
-  get '/new_planet' => 'planets#new'
-  post '/new_planet' => 'planets#create'
-  get '/edit_planet' => 'planets#edit'
-  patch '/planet' => 'planets#update'
-  delete '/destroy_planet' => 'planets#destroy'
+  # get '/planets' => 'planets#index'
+  # get '/planet/:id' => 'planets#show'
+  # get '/new_planet' => 'planets#new'
+  # post '/new_planet' => 'planets#create'
+  # get '/edit_planet' => 'planets#edit'
+  # patch '/planet' => 'planets#update'
+  # delete '/destroy_planet' => 'planets#destroy'
 
   #moons
-  get '/planet_moons' => 'moons#index'
-  get '/planet_moon' => 'moons#show'
-  get '/new_planet_moon' => 'moons#new'
-  post '/new_planet_moon' => 'moons#create'
-  get '/edit_planet_moon' => 'moons#edit'
-  patch '/planet_moon' => 'moons#update'
-  delete '/destroy_planet_moon' => 'moons#destroy'
+  # get '/planet_moons' => 'moons#index'
+  # get '/planet_moon' => 'moons#show'
+  # get '/new_planet_moon' => 'moons#new'
+  # post '/new_planet_moon' => 'moons#create'
+  # get '/edit_planet_moon' => 'moons#edit'
+  # patch '/planet_moon' => 'moons#update'
+  # delete '/destroy_planet_moon' => 'moons#destroy'
 
 
-  resources :moons
+  resources :moons, controller: "planets_moons"
   resources :users do
     resources :planets, only: [:index]
   end
 
   resources :planets do
-    resources :moons, only: [:index]
+    resources :moons, only: [:index], controller: "planets_moons"
   end
 
   

@@ -11,12 +11,12 @@
         <p>Length of Year: <%= planet.length_of_year %></p>
         <p>Distance from the Sun: <%= planet.distance_from_sun %></p>
         <p>Moons: <%= planet.moons %></p>
-        <%= link_to 'Show', planet %><br>
+        <%= link_to 'Show', planet_path(planet) %><br>
         <%= link_to 'Edit', edit_planet_path(planet) %><br>
-        <%= link_to 'Delete', destroy_planet_path(planet), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', planet_path(planet), method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     <% end %>
   </div>
 <% end %>
 
-<p align="center"><%= link_to "Add a Planet", '/new_planet' %></p>
+<p align="center"><%= link_to "Add a Planet", new_planet_path %></p>

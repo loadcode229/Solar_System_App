@@ -19,22 +19,22 @@ class PlanetsController < ApplicationController
     end 
 
     def show
-        @planet = Planet.find_by(params[:id])
+        @planet = Planet.find_by(id: params[:id])
     end
 
     def edit
-        @planet = Planet.find_by(params[:id])
+        @planet = Planet.find_by(id: params[:id])
     end
 
     def update
-        planet = Planet.find_by(params[:id])
+        planet = Planet.find_by(id: params[:id])
         planet.update(planet_params)
         redirect_to planet_path(planet)
         
     end
 
     def destroy
-        @planet = Planet.find_by(params[:id])
+        @planet = Planet.find_by(id: params[:id])
         @planet.destroy
         redirect_to planets_path
     end
