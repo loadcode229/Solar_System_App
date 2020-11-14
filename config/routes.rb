@@ -32,13 +32,13 @@ Rails.application.routes.draw do
   # delete '/destroy_planet_moon' => 'moons#destroy'
 
 
-  resources :moons, controller: "planets_moons"
+  resources :moons, controller: "planet_moons"
   resources :users do
     resources :planets, only: [:index]
   end
 
   resources :planets do
-    resources :moons, only: [:index], controller: "planets_moons"
+    resources :moons, only: [:index], controller: "planet_moons"
   end
 
   

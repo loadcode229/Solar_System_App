@@ -1,6 +1,6 @@
-class CreatePlanetsMoons < ActiveRecord::Migration[6.0]
+class CreatePlanetMoons < ActiveRecord::Migration[6.0]
   def change
-    create_table :planets_moons do |t|
+    create_table :planet_moons do |t|
       t.string :name
       t.string :planet_moon_orbits
       t.text :description
