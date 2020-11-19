@@ -4,7 +4,7 @@
             <h2><%= pluralize(@planet_moon.errors.count, "error") %> prohibited this moon from being saved:</h2>
 
             <ul>
-                <% @planet_moon.erorrs.full_messages.each do |messages| %>
+                <% @planet_moon.erorrs.full_messages.each do |message| %>
                     <li><%= message %></li>
                 <% end %>
             </ul>
@@ -44,6 +44,7 @@
     </div>
     
     <%= form.label :image %>
+    <br>
     <%= form.file_field :image %>
     <br>
     <br>

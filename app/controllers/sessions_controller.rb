@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
 
-    def destroy
-        session.clear
-        redirect_to root_path
+    def login
+        @user = User.new
     end
 
     def create
@@ -14,5 +13,14 @@ class SessionsController < ApplicationController
             flash[:message] = "Incorrect login info. Please try again."
             redirect_to '/login'
         end 
+    end
+
+    def google_login
+        byebug
+    end
+
+    def destroy
+        session.clear
+        redirect_to root_path
     end
 end

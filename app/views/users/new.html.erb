@@ -1,7 +1,12 @@
 <h1 align="center">Sign Up!</h1>
 
 <div align="center">
-    <%= form_for(@user) do |f| %>
+    <%= form_with model: @user, local: true do |f| %>
+        
+        <% if @user.errors.any? %>
+            <p>There were errors:</p>
+            <p><%= @user.errors.full_messages.join(" | ") %></p>
+        <% end %>
 
         <%= f.label :username %>
         <%= f.text_field :username %>
@@ -18,7 +23,7 @@
         <br>
         <br>
 
-        <%= f.submit 'Submit' %>
+        <%= f.submit 'Sign Up!' %>
 
     <% end %>
 </div>

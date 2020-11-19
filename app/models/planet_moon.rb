@@ -1,4 +1,4 @@
-class PlanetMoon < ApplicationRecord
+class PlanetMoon < ActiveRecord::Base
   belongs_to :user
   belongs_to :planet
 end

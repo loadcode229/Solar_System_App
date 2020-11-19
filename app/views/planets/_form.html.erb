@@ -1,10 +1,10 @@
-<%= form_with(model: planet, local: true) do |form| %>
-    <% if planet.errors.any? %>
+<%= form_with(model: @planet, local: true) do |form| %>
+    <% if @planet.errors.any? %>
         <div id="error_explanation">
-            <h2><%= pluralize(planet.errors.count, "error") %> prohibited this planet from being saved:</h2>
+            <h2><%= pluralize(@planet.errors.count, "error") %> prohibited this planet from being saved:</h2>
 
             <ul>
-                <% planet.erorrs.full_messages.each do |messages| %>
+                <% @planet.erorrs.full_messages.each do |message| %>
                     <li><%= message %></li>
                 <% end %>
             </ul>
