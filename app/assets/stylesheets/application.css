@@ -46,11 +46,22 @@ body {
 
 /* FOOTER */
 
-footer { 
-    position: fixed;
-    left: 0;
-    bottom: 0;
+div.footer { 
+    height: 24px;
     width: 100%;
-    color: slategrey;
-    text-align: left;
+    background-image: none;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: slategrey;
+}
+
+div.footer_contents {
+    height: 24px;
+    width: 600px;
+    float: right;
+    color: #cccccc;
 }
