@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_174408) do
-
-  create_table "planet_moons", force: :cascade do |t|
-    t.string "name"
-    t.string "planet_moon_orbits"
-    t.text "description"
-    t.string "length_of_year"
-    t.integer "user_id", null: false
-    t.integer "planet_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
-    t.index ["planet_id"], name: "index_planet_moons_on_planet_id"
-    t.index ["user_id"], name: "index_planet_moons_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2020_11_05_005715) do
 
   create_table "planets", force: :cascade do |t|
     t.string "name"
@@ -47,6 +33,4 @@ ActiveRecord::Schema.define(version: 2020_11_14_174408) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "planet_moons", "planets"
-  add_foreign_key "planet_moons", "users"
 end
