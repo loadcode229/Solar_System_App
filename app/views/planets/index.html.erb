@@ -1,5 +1,5 @@
 <h1 align="center">Planets</h1>
-
+<p align="center"><%= link_to "Add a Planet", new_planet_path %></p>
 <% @planets.in_groups_of(3) do |group| %>
   <div class="row">
     <% group.compact.each do |planet| %>
@@ -14,9 +14,8 @@
         <%= link_to 'Show', planet_path(planet) %><br>
         <%= link_to 'Edit', edit_planet_path(planet) %><br>
         <%= link_to 'Delete', planet_path(planet), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <br><br>
       </div>
     <% end %>
   </div>
 <% end %>
-
-<p align="center"><%= link_to "Add a Planet", new_planet_path %></p>

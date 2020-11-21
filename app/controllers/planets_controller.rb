@@ -2,7 +2,7 @@ class PlanetsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-        @planets = current_user.planets.all
+        @planets = current_user.planets.alphabetize_planets
     end
 
     def new
@@ -19,7 +19,7 @@ class PlanetsController < ApplicationController
     end 
 
     def show
-        @planet = current_user.Planet.find_by_id(params[:id])
+        @planet = current_user.planets.find_by_id(params[:id])
     end
 
     def edit
