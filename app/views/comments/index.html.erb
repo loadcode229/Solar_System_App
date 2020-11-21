@@ -1,0 +1,19 @@
+<% if @planet %>
+    <h1 align="center">Comments for <%= @planet.name %></h1>
+<% else %>
+    <h1 align="center">All Comments</h1>
+<% end %>
+
+<% if @comments %>
+    <% @comments.in_groups_of(3) do |group| %>
+        <div class="row">
+        <% group.compact.each do |c| %>
+            <strong><%= c.user.username%></strong> says "<%= c.content%>" about this planet: <strong><%= link_to c.planet.name, planet_path(c.planet_id) %></strong></li>
+            <br>
+            <%= link_to 'Edit', edit_comment_path(c) %> |
+            <%= link_to 'Back', planet_comments_path %>
+            <br><br>
+        <% end %>
+        </div>
+    <% end %>
+<% end %>

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_005715) do
+ActiveRecord::Schema.define(version: 2020_11_21_180551) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id", null: false
+    t.integer "planet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["planet_id"], name: "index_comments_on_planet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "planets", force: :cascade do |t|
     t.string "name"
@@ -33,4 +43,6 @@ ActiveRecord::Schema.define(version: 2020_11_05_005715) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "planets"
+  add_foreign_key "comments", "users"
 end

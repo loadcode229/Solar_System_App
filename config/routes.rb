@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
   #root
   root "sessions#home"
 
@@ -14,14 +13,15 @@ Rails.application.routes.draw do
   #logout
   delete '/logout' => 'sessions#destroy'
 
-  resources :moons, controller: "planet_moons"
-  resources :users, only: [:new, :create, :show]
+  #resources :moons, controller: "planet_moons"
+  resources :comments
   resources :users do
     resources :planets, only: [:new, :create, :index, :show]
   end
 
   resources :planets do
-    resources :moons, only: [:new, :create, :index, :show], controller: "planet_moons"
+    resources :comments
+    #resources :moons, only: [:new, :create, :index, :show], controller: "planet_moons"
   end
 
   get '/auth/google_oauth2/callback', to: 'sessions#google_login'

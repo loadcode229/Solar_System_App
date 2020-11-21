@@ -1,3 +1,4 @@
+<h1 align="center"><%= @planet.name %></h1><br>
 <div class="row">
   <div class="col-md-9">
     <%= image_tag(@planet.image_url, width: '100%') if @planet.image.present? %>
@@ -11,8 +12,23 @@
     <p><b>Distance from the Sun: </b><%= @planet.distance_from_sun %></p>
     <p><b>Moons: </b><%= @planet.moons %></p>
     <p>
+      <%= link_to 'Add a new comment', new_planet_comment_path(@planet)%><br>
       <%= link_to 'Edit', edit_planet_path(@planet) %> |
       <%= link_to 'Back', planets_path %>
     </p>
   </div>
 </div>
+<br>
+
+<% if !@planet.comments.empty? %>
+  <p><%= link_to 'See all comments', planet_comments_path(@planet)%></p>
+  <h4>Most Recent Comments:</h4>
+  <% @planet.comments.order(updated_at: :desc).limit(3).each do |c|%>
+    <li>
+      <strong><%= c.user.username%></strong> says "<%= link_to c.content, planet_comment_path(@planet,c)%>" at <%= c.updated_at.strftime("%I:%M %p on %m/%d/%Y") %>
+    </li>
+  <% end %>
+  <br>
+  <%= link_to 'Edit', edit_planet_comment_path(@planet) %> |
+  <%= link_to 'Back', planets_path %>
+<% end %>
