@@ -4,13 +4,13 @@
     <h1 align="center">All Comments</h1>
 <% end %>
 
-<% if @comments %>
+<% if @planet %>
     <% @comments.in_groups_of(3) do |group| %>
         <div class="row">
-        <% group.compact.each do |c| %>
-            <strong><%= c.user.username%></strong> says "<%= c.content%>" about this planet: <strong><%= link_to c.planet.name, planet_path(c.planet_id) %></strong></li>
+        <% group.compact.each do |comment| %>
+            <strong><%= comment.user.username%></strong> says "<%= comment.content%>" about this planet: <strong><%= link_to comment.planet.name, planet_path(comment.planet_id) %></strong>
             <br>
-            <%= link_to 'Edit', edit_comment_path(c) %> |
+            <%= link_to 'Edit', edit_planet_comment_path(@planet,comment) %> |
             <%= link_to 'Back', planet_comments_path %>
             <br><br>
         <% end %>
