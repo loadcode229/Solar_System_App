@@ -1,0 +1,18 @@
+<h1 align="center"><%= @moon.name %></h1><br>
+<div class="row">
+  <div class="col-md-9">
+    <%= image_tag(@moon.image_url, width: '100%') if @moon.image.present? %>
+  </div>
+
+  <div class="col-md-3">
+    <p><b>Name: </b><%= @moon.name %></p>
+    <p><b>Type of Moon: </b><%= @moon.planet_moon_orbits %></p>
+    <p><b>Description: </b><%= @moon.description %></p>
+    <p><b>Length of Year: </b><%= @moon.length_of_year %></p>
+    <p>
+      <%= link_to 'Edit', edit_moon_path(@moon) %> |
+      <%= link_to 'Back', moons_path %>
+    </p>
+  </div>
+</div>
+<br>

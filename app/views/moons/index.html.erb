@@ -1,0 +1,19 @@
+<h1 align="center">Moons</h1>
+<p align="center"><%= link_to "Add a Moon", new_moon_path %></p>
+<% @moons.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |moon| %>
+      <div class="col-md-4">
+        <%= image_tag moon.image_url(:thumb) if moon.image.present? %>
+        <h4><%= link_to moon.name, moon %></h4>
+        <p><b>Planet Moon Orbits: </b><%= moon.planet_moon_orbits %></p>
+        <p><b>Description: </b><%= moon.description %></p>
+        <p><b>Length of Year: </b><%= moon.length_of_year %></p>
+        <%= link_to 'Show', moon_path(moon) %><br>
+        <%= link_to 'Edit', edit_moon_path(moon) %><br>
+        <%= link_to 'Delete', moon_path(moon), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <br><br>
+      </div>
+    <% end %>
+  </div>
+<% end %>

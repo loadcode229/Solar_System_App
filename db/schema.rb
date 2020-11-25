@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_21_180551) do
+ActiveRecord::Schema.define(version: 2020_11_25_004458) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2020_11_21_180551) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["planet_id"], name: "index_comments_on_planet_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "moons", force: :cascade do |t|
+    t.string "name"
+    t.string "planet_moon_orbits"
+    t.text "description"
+    t.string "length_of_year"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
   end
 
   create_table "planets", force: :cascade do |t|

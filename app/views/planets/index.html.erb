@@ -6,11 +6,11 @@
       <div class="col-md-4">
         <%= image_tag planet.image_url(:thumb) if planet.image.present? %>
         <h4><%= link_to planet.name, planet %></h4>
-        <p>Type of Planet: <%= planet.type_of_planet %></p>
-        <p>Description: <%= planet.description %></p>
-        <p>Length of Year: <%= planet.length_of_year %></p>
-        <p>Distance from the Sun: <%= planet.distance_from_sun %></p>
-        <p>Moons: <%= planet.moons %></p>
+        <p><b>Type of Planet: </b><%= planet.type_of_planet %></p>
+        <p><b>Description: </b><%= planet.description %></p>
+        <p><b>Length of Year: </b><%= planet.length_of_year %></p>
+        <p><b>Distance from the Sun: </b><%= planet.distance_from_sun %></p>
+        <p><b>Moons: </b><%= planet.moons %></p>
         <%= link_to 'Show', planet_path(planet) %><br>
         <%= link_to 'Edit', edit_planet_path(planet) %><br>
         <%= link_to 'Delete', planet_path(planet), method: :delete, data: { confirm: 'Are you sure?' } %>
