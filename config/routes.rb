@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#login'
   post '/login' => 'sessions#create'
 
+  #logged_in
+  get '/user' => 'users#show'
+
   #logout
   delete '/logout' => 'sessions#destroy'
 
