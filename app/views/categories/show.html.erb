@@ -1,7 +1,7 @@
-<h1><%= @category.name %> = <%= pluralize(@category.planets.count, "planets") %></h1>
+<h1><%= @category.name %> - <%= pluralize(@category.planets.count, "planets") %></h1>
 
 <ol>
-    <% @category.planets.each do |planet | %>
-        <li><%= link_to planet.title, planet_path(planet) %></li>
-    <% end %>
+    <% @category.planets.each do  |planet| %>
+      <li><%= link_to planet.name, planet_path(planet)  %></li>
+    <% end  %>
 </ol>

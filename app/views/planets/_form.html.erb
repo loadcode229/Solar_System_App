@@ -2,17 +2,19 @@
 
 <%= form_with(model: @planet, local: true) do |form| %>
 
-    <%= form.label "Choose a category:" %>
-    <%= form.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
-    <br><br>
+    <div class="fields">
+        <%= form.label "Choose a category:" %>
+        <%= form.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+        <br><br>
 
-    <p>Or create a new category:
-    <%= form.fields_for :category do |c| %>
-        <%= c.text_field :name %>
-    <% end %>
-    </p>
-    <br>
-
+        <p>Or create a new category:
+        <%= form.fields_for :category do |c| %>
+            <%= c.text_field :name %>
+        <% end %>
+        </p>
+        <br>
+    </div>
+    
     <div class="fields">
         <%= form.label :name %>
         <br>

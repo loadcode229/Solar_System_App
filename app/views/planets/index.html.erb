@@ -1,5 +1,11 @@
-<h1 align="center">Planets</h1>
+<h1 align="center"><b>Planets</b></h1>
 <div align="center">
+  <%= form_tag("/planets", method: 'get') do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+<br>
   <%= form_tag("/planets", method: 'get') do %>
     <%= label_tag(:category_id, "Select a Category:") %>
     <%= collection_select(:planet, :category_id, Category.all, :id, :name) %>

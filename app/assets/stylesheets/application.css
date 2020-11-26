@@ -44,6 +44,19 @@ body {
     padding-top: 100px;
 }
 
+h1 {
+    color: rgb(84, 110, 136);
+}
+
+ul {
+    -moz-column-count: 2;
+    -moz-column-gap: 1px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 1px;
+    column-count: 2;
+    column-gap: 1px;
+}
+
 /* FOOTER */
 
 div.footer { 
