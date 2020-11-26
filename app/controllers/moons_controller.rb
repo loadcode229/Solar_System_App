@@ -2,7 +2,7 @@ class MoonsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-        @moons = current_user.moons.all
+        @moons = current_user.moons.alphabetize_moons
     end
 
     def new

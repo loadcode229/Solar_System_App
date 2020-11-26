@@ -1,16 +1,18 @@
-<%= form_with(model: @planet, local: true) do |form| %>
-    <% if @planet.errors.any? %>
-        <div id="error_explanation">
-            <h2><%= pluralize(@planet.errors.count, "error") %> prohibited this planet from being saved:</h2>
+<%= render partial: "layouts/errors", locals: {object: @planet} %>
 
-            <ul>
-                <% @planet.erorrs.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-            </ul>
-        </div>
+<%= form_with(model: @planet, local: true) do |form| %>
+
+    <%= form.label "Choose a category:" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+    <br><br>
+
+    <p>Or create a new category:
+    <%= form.fields_for :category do |c| %>
+        <%= c.text_field :name %>
     <% end %>
-    
+    </p>
+    <br>
+
     <div class="fields">
         <%= form.label :name %>
         <br>

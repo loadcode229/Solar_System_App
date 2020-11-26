@@ -1,15 +1,6 @@
-<%= form_with(model: @moon, local: true) do |form| %>
-    <% if @moon.errors.any? %>
-        <div id="error_explanation">
-            <h2><%= pluralize(@moon.errors.count, "error") %> prohibited this moon from being saved:</h2>
+<%= render partial: "layouts/errors", locals: {object: @moon} %>
 
-            <ul>
-                <% @moon.erorrs.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
+<%= form_with(model: @moon, local: true) do |form| %>
     
     <div class="fields">
         <%= form.label :name %>
@@ -38,7 +29,7 @@
     <div class="fields">
         <%= form.label :length_of_year %>
         <br>
-        <%= form.text_field :length_of_year %> (In Days.)
+        <%= form.text_field :length_of_year %>
         <br>
         <br>
     </div>
