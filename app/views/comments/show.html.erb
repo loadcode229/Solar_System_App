@@ -1,8 +1,9 @@
-<h2 align="center"><%= @comment.content %> - <%= @comment.user.username %></h2>
+<h3 align="center"><%= @comment.content %> - <%= @comment.user.username %></h3>
 <br>
-<% if @comment.user == current_user %>
-    <%= link_to "Edit Comment", edit_comment_path(@comment) %> |
-    <%= link_to "Delete Comment", comment_path(@comment) %>
-<% end %>
-
-<h4>Read the post here: <%= link_to @comment.planet.name, planet_path(@comment.planet_id) %></h4>
+<p align="center">
+    <% if @comment.user == current_user %>
+        <%= link_to "Edit Comment", edit_comment_path(@comment) %> |
+        <%= link_to "Delete Comment", comment_path(@comment) %>
+    <% end %>
+</p>
+<h4 align="center">Read the post here: <%= link_to @comment.planet.name, planet_path(@comment.planet_id) %></h4>

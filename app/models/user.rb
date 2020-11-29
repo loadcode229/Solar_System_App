@@ -5,7 +5,6 @@ class User < ApplicationRecord
     has_many :moons
     has_many :comments
     has_many :commented_planets, through: :comments, source: :planet
-    has_many :categories, through: :planets, :dependent => :destroy
 
     validates :email, presence: true, uniqueness: true
     validates :username, presence: true, uniqueness: true

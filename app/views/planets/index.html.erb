@@ -1,18 +1,4 @@
 <h1 align="center"><b>Planets</b></h1>
-<div align="center">
-  <%= form_tag("/planets", method: 'get') do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Search") %>
-  <% end %>
-<br>
-  <%= form_tag("/planets", method: 'get') do %>
-    <%= label_tag(:category_id, "Select a Category:") %>
-    <%= collection_select(:planet, :category_id, Category.all, :id, :name) %>
-    <%= submit_tag("Filter") %>
-  <% end %>
-</div>
-<br>
 <p align="center"><%= link_to "Add a Planet", new_planet_path %></p>
 <% @planets.in_groups_of(3) do |group| %>
   <div class="row">

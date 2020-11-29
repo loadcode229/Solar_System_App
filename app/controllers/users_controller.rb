@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     def show
         redirect_if_not_logged_in
-        @user = User.includes(planets: :category).find_by_id(params[:id])
+        @user = User.find_by_id(params[:id])
         return '/' if !@user
     end
 
