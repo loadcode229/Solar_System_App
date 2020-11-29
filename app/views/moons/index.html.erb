@@ -1,5 +1,5 @@
 <h1 align="center"><b>Moons</b></h1>
-<p align="center"><%= link_to "Add a Moon", new_moon_path %></p>
+<h4 align="center"><%= link_to "Add a Moon", new_moon_path %></h4>
 <% @moons.in_groups_of(3) do |group| %>
   <div class="row">
     <% group.compact.each do |moon| %>

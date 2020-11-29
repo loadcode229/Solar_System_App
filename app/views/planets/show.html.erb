@@ -24,15 +24,13 @@
 <% if !@planet.comments.empty? %>
   <p><%= link_to 'See all comments', planet_comments_path(@planet)%></p>
   <h3>Most Recent Comments:</h3>
-  <% @planet.comments.order(updated_at: :desc).limit(10).each do |comment|%>
-    <li>
-      <strong><%= comment.user.username%></strong> says "<%= link_to comment.content, planet_comment_path(@planet,comment)%>" at <%= comment.updated_at.strftime("%I:%M %p on %m/%d/%Y") %>
-      <br>
-      <%= link_to 'Edit', edit_planet_comment_path(@planet,comment) %> |
-      <%= link_to 'Back', planets_path %> |
-      <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
+  <% @planet.comments.order(updated_at: :desc).limit(10).each do |comment| %>
+    <strong><%= comment.user.username%></strong> says "<%= link_to comment.content, planet_comment_path(@planet,comment)%>" <br>at <%= comment.updated_at.strftime("%I:%M %p on %m/%d/%Y") %>
     <br>
+    <%= link_to 'Edit', edit_planet_comment_path(@planet,comment) %> |
+    <%= link_to 'Back', planets_path %> |
+    <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br><br>
   <% end %>
 <% end %>
 <br>

@@ -44,6 +44,16 @@ body {
     padding-top: 100px;
 }
 
+div.col-md-4 {
+    height: 20px;
+    width: 33.3%;
+}
+
+div.col-md-4 img {
+    height: 50px;
+    width: 50px;
+}
+
 h1, h2, h3 {
     color: rgb(84, 110, 136);
 }
@@ -55,6 +65,10 @@ ul {
     -webkit-column-gap: 1px;
     column-count: 2;
     column-gap: 1px;
+}
+
+li {
+    text-align: center;
 }
 
 /* FOOTER */
