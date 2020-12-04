@@ -1,10 +1,9 @@
 class PlanetsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
-
     def index
         if params[:search]
-            @planets = current_user.planets.search(params[:search]).order("created_at DESC")
+            @planets = current_user.planets.search(params[:search]).order(name: :asc)
         else
             @planets = current_user.planets.alphabetize_planets
         end

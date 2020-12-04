@@ -9,6 +9,6 @@ class Planet < ApplicationRecord
     mount_uploader :image, ImageUploader
 
     def self.search(search)
-        where("name LIKE ?", "%#{search}%")
+        where("lower(name) LIKE '#{search.downcase}%'")
     end
 end
