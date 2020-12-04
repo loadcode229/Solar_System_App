@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   #search planets
   get '/search' => 'planets#search'
+  
   resources :moons
   resources :comments
   resources :users do
