@@ -1,8 +1,13 @@
 class PlanetsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
+
     def index
-        @planets = current_user.planets.alphabetize_planets
+        if params[:search]
+            @planets = current_user.planets.search(params[:search]).order("created_at DESC")
+        else
+            @planets = current_user.planets.alphabetize_planets
+        end
     end
 
     def new
@@ -41,6 +46,6 @@ class PlanetsController < ApplicationController
     private
 
     def planet_params
-        params.require(:planet).permit(:name, :type_of_planet, :description, :length_of_year, :distance_from_sun, :moons, :image)
+        params.require(:planet).permit(:name, :type_of_planet, :description, :length_of_year, :distance_from_sun, :moons, :image, :search)
     end
 end

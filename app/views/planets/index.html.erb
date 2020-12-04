@@ -1,4 +1,11 @@
 <h1 align="center"><b>Planets</b></h1>
+
+<h3>Search by Planet Name:</h3>
+  <%= form_tag(planets_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Planets" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
 <h4 align="center"><%= link_to "Add a Planet", new_planet_path %></h4>
 <% @planets.in_groups_of(3) do |group| %>
   <div class="row">

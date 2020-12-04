@@ -7,4 +7,8 @@ class Planet < ApplicationRecord
     scope :alphabetize_planets, -> { order(name: :asc) }
 
     mount_uploader :image, ImageUploader
+
+    def self.search(search)
+        where("name LIKE ?", "%#{search}%")
+    end
 end
